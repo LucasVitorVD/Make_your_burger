@@ -1,30 +1,47 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="container">
+    <NavBar :logo="logo_src" :alt="app_name"/>
+    <router-view/>
+    <Footer></Footer>
+  </div>
 </template>
 
+<script>
+  import NavBar from './components/NavBar'
+  import Footer from './components/Footer'
+
+  export default {
+    name: 'App',
+    components: {
+      NavBar,
+      Footer
+    },
+    data() {
+      return {
+        logo_src: '/img/logo.png',
+        app_name: 'Make your burger'
+      }
+    }
+  }
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+  }
 
-nav {
-  padding: 30px;
-}
+  main {
+    margin: 3.4rem;
+    min-height: 60vh;
+  }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+  h1 {
+    text-align: center;
+    font-size: 2.6em;
+    margin-bottom: 1.2rem;
+    color: #222;
+  }
 </style>
